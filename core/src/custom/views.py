@@ -8,6 +8,7 @@ class ItemViewSet(ViewSet):
         item = [
             {"name": "Kurti", "price": "599.0"},
             {"name": "Shirt", "price": 799.0, "color": "blue"},
+            {"name": "Kurta", "price": "597.0"},
         ]
         
         serializer = ItemSerializer(item, many=True)
