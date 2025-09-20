@@ -11,4 +11,4 @@ class ItemViewSet(ViewSet):
         ]
         
         serializer = ItemSerializer(item, many=True)
-        return Response({"status": "success", "data": serializer.data}, status=status.HTTP_200_OK)
+        return Response({"status": "success", "data": serializer.data, "test": True}, status=status.HTTP_200_OK)
