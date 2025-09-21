@@ -3,6 +3,19 @@
 Welcome! This guide will help you set up and start developing with this Django project, even if you’re new to Django.
 
 ---
+## Prerequisites
+
+Install uv gloabally. 
+
+**Windows:**
+```sh
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+**macOS/Linux:**
+```sh
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
 
 ## 1. **Activate the Virtual Environment**
 
