@@ -5,7 +5,7 @@ Welcome! This guide will help you set up and start developing with this Django p
 ---
 ## Prerequisites
 
-Install uv gloabally. 
+Install uv globally. 
 
 **Windows:**
 ```sh
