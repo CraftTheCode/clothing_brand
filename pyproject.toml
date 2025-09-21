@@ -9,24 +9,37 @@ dependencies = [
     "djangorestframework>=3.16.1",
     "pyyaml>=6.0.2",
     "django-filter",
-    "psycopg2-binary",         # PostgreSQL driver
-    "djangorestframework-simplejwt",  # JWT auth
-    "django-cors-headers",     # CORS for APIs
-    "python-dotenv",           # Environment variable management
-    "Pillow",                  # Image handling
-    "celery",                  # Background tasks
-    "redis",                   # Caching/broker for Celery
-    "drf-yasg",                # API docs (Swagger/OpenAPI)
-    "django-extensions",       # Extra management commands
-    "django-debug-toolbar",    # Debugging in development
-    "gunicorn",                # Production WSGI server
-    "whitenoise",              # Static file serving
-    # Testing
-    "pytest",
-    "pytest-django",
-    "pytest-cov",
+    "psycopg2-binary",
+    "djangorestframework-simplejwt",
+    "django-cors-headers",
+    "python-dotenv",
+    "Pillow",
+    "celery",
+    "redis",
+    "drf-yasg",
+    "django-extensions",
+    "django-debug-toolbar",
+    "gunicorn",
+    "whitenoise",
     "factory-boy",
     "requests",
     "pook",
+    "loguru>=0.7.3",
+    "isodate>=0.7.2",
+]
+
+[dependency-groups]
+dev = [
+    "allure-pytest>=2.15.0",
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+    "pytest-django>=4.11.1",
+    "pytest-watcher>=0.4.3",
     "pytest-mock",
+    "ruff>=0.12.9",
+]
+
+[tool.ruff]
+exclude = [
+    "*/migrations/*",
 ]
