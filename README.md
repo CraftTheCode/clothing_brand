@@ -1,4 +1,4 @@
-# 🚀 Getting Started with the Clothing Brand Django Project
+# Getting Started with the Clothing Brand Django Project
 
 Welcome! This guide will help you set up and start developing with this Django project, even if you’re new to Django.
 
