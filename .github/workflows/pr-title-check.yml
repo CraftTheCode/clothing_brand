@@ -1,0 +1,29 @@
+name: "PR Title Check"
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+jobs:
+  check-title:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check PR title
+        id: title-check
+        uses: actions-ecosystem/action-regex-match@v2
+        with:
+          text: ${{ github.event.pull_request.title }}
+          regex: '^(Chore: (CLOT-\d+ )?[A-Z][a-zA-Z0-9].*|Feature: CLOT-\d+ [A-Z][a-zA-Z0-9].*|Fix: (CLOT-\d+ )?[A-Z][a-zA-Z0-9].*)$'
+
+      - name: Fail if PR title does not match
+        if: steps.title-check.outputs.match == ''
+        run: |
+          echo "Invalid PR title: '${{ github.event.pull_request.title }}'"
+          echo ""
+          echo "Valid examples:"
+          echo " - Chore: CLOT-1 Update table product"
+          echo " - Chore: Update table user"
+          echo " - Feature: CLOT-2 Add table catalog"
+          echo " - Fix: CLOT-3 Fix user serializer to accept contact info as 'None'"
+          echo " - Fix: Update table order"
+          exit 1
