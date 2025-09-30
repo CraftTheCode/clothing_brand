@@ -7,6 +7,9 @@ jobs:
   lint:
     name: Lint — ruff
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: core  
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -28,6 +31,10 @@ jobs:
   format:
     name: Format — ruff (check)
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: core  
+
     steps:
       - name: Checkout
         uses: actions/checkout@v5
