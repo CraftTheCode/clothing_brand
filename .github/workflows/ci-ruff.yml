@@ -1,11 +1,11 @@
-name: CI — Ruff lint & format
+name: Backend lint & format check
 
 on:
   pull_request:
 
 jobs:
   lint:
-    name: Lint — ruff
+    name: Lint-check
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -29,7 +29,7 @@ jobs:
         run: uv run ruff check .
 
   format:
-    name: Format — ruff (check)
+    name: Format-check
     runs-on: ubuntu-latest
     defaults:
       run:
