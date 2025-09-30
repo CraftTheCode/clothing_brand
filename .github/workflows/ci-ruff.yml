@@ -1,0 +1,47 @@
+name: CI — Ruff lint & format
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint — ruff
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install uv (astral)
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install Python (respect project's pin)
+        run: uv python install
+
+      - name: Install project dev dependencies
+        run: uv sync --locked --dev
+
+      - name: Run ruff lint
+        run: uv run ruff check .
+
+  format:
+    name: Format — ruff (check)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Install uv (astral)
+        uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+
+      - name: Install Python (respect project's pin)
+        run: uv python install
+
+      - name: Install project dev dependencies
+        run: uv sync --locked --dev
+
+      - name: Run ruff format (check)
+        run: uv run ruff format . --check
