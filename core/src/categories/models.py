@@ -1,10 +1,15 @@
 from django.db import models
 
+
 class Category(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
     parent = models.ForeignKey(
-        'self', on_delete=models.CASCADE, blank=True, null=True, related_name='subcategories'
+        "self",
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True,
+        related_name="subcategories",
     )
     image_url = models.URLField(blank=True, null=True)
     is_active = models.BooleanField(default=True)
@@ -16,7 +21,7 @@ class Category(models.Model):
 
     class Meta:
         verbose_name_plural = "Categories"
-        ordering = ['sort_order', 'name']
+        ordering = ["sort_order", "name"]
 
     def __str__(self):
         return self.name
